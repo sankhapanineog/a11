@@ -58,7 +58,8 @@ def train_neural_network(X, Y, learning_rate, num_iterations):
 
     # Plot the cost during training
     st.subheader("Cost During Training")
-    fig_cost = px.line(x=np.arange(0, num_iterations, 100), y=cost_history, labels={'x': 'Iteration', 'y': 'Cost'})
+    iterations = np.arange(0, num_iterations, 100)  # Adjusted to match iteration steps
+    fig_cost = px.line(x=iterations, y=cost_history[::100], labels={'x': 'Iteration', 'y': 'Cost'})
     st.plotly_chart(fig_cost)
 
     return parameters
