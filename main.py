@@ -153,7 +153,7 @@ def main():
 
     st.write("Embark on a transformative journey towards proactive asset management with our cutting-edge Neural Network-based Asset Health Prediction software. Secure your spot in our early registration and be among the pioneers leveraging the power of artificial intelligence for asset forecasting. ")
 
-    st.write(" ")
+    st.write(" For collaboration mail us at neogsankhapani@gmail.com ")
 
     st.write(" ")
 
