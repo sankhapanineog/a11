@@ -1,53 +1,9 @@
-# Enhanced Streamlit app with a different background color
-
 # Import necessary libraries
 import streamlit as st
 import pandas as pd
 import numpy as np
 import plotly.express as px
 from sklearn.metrics import confusion_matrix, accuracy_score, classification_report
-import streamlit.components.v1 as components
-
-# Set background color
-st.markdown(
-    """
-    <style>
-        body {
-            background-color: #1a1a1a; /* Dark gray background */
-            color: #fff;
-        }
-
-        .sidebar .sidebar-content {
-            background-color: #333;
-        }
-
-        .stButton>button {
-            background-color: #3498db; /* Button color */
-            color: #fff;
-        }
-
-        .stButton>button:hover {
-            background-color: #2980b9; /* Button color on hover */
-        }
-
-        .stSlider>div>div>div>div>div {
-            background-color: #3498db; /* Slider color */
-        }
-
-        .stPlotlyChart {
-            border: 2px solid #3498db; /* Plot border color */
-            border-radius: 10px;
-        }
-
-        .stAlert {
-            background-color: #2ecc71; /* Alert color */
-            color: #fff;
-            border: 2px solid #2ecc71; /* Alert border color */
-        }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
 
 # Activation function (sigmoid)
 def sigmoid(x):
