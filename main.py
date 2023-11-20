@@ -77,49 +77,10 @@ def generate_random_data():
     data = pd.DataFrame({'timestamp': timestamps, 'value': values})
     return data
 
-# Set the dark theme for the entire app
-st.markdown(
-    """
-    <style>
-    body {
-        background-color: #111;
-        color: #fff;
-    }
-
-    .sidebar .sidebar-content {
-        background-color: #333;
-    }
-
-    .stButton>button {
-        background-color: #3498db;
-        color: #fff;
-    }
-
-    .stButton>button:hover {
-        background-color: #2980b9;
-    }
-
-    .stSlider>div>div>div>div>div {
-        background-color: #3498db;
-    }
-
-    .stPlotlyChart {
-        border: 2px solid #3498db;
-        border-radius: 10px;
-    }
-
-    .stAlert {
-        background-color: #2ecc71;
-        color: #fff;
-        border: 2px solid #2ecc71;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
 # Streamlit app
 def main():
+    st.title("Group 7: Neural Network Asset Health Prediction App")
+
     # Option to Generate Random Data or Upload CSV
     data_option = st.radio("Choose Data Source:", ("Generate Random Data", "Upload CSV"))
 
@@ -176,9 +137,14 @@ def main():
     accuracy = accuracy_score(y_true, y_pred)
     classification_rep = classification_report(y_true, y_pred)
 
-    st.write(f"Confusion Matrix:\n{cm}")
-    st.write(f"Accuracy: {accuracy}")
-    st.write(f"Classification Report:\n{classification_rep}")
+    # Display the Confusion Matrix
+    st.markdown("### Confusion Matrix")
+    st.write(pd.DataFrame(cm, columns=['Predicted Healthy', 'Predicted Unhealthy'], index=['Actual Healthy', 'Actual Unhealthy']))
+
+    # Display Accuracy and Classification Report
+    st.markdown(f"**Accuracy:** {accuracy:.2%}")
+    st.markdown("### Classification Report")
+    st.write(classification_rep)
 
     # Explain the advantages of AI-based asset health forecasting
     st.subheader("Advantages of AI-based Asset Health Forecasting:")
