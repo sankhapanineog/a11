@@ -132,7 +132,7 @@ def main():
 
     # Confusion Matrix, Accuracy, and Classification Report
     y_true = Y.flatten()
-    y_pred = predictions_original.flatten() > threshold
+    y_pred = (predictions_original.flatten() > threshold).astype(int)
     cm = confusion_matrix(y_true, y_pred)
     accuracy = accuracy_score(y_true, y_pred)
     classification_rep = classification_report(y_true, y_pred)
