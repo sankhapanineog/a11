@@ -77,10 +77,11 @@ def generate_random_data():
     data = pd.DataFrame({'timestamp': timestamps, 'value': values})
     return data
 
+# Set the default theme to dark
+st.set_page_config(page_title="Neural Network Asset Health Prediction App", page_icon="✅", layout="wide")
+
 # Streamlit app
 def main():
-    st.title("Group 7: Neural Network Asset Health Prediction App")
-
     # Option to Generate Random Data or Upload CSV
     data_option = st.radio("Choose Data Source:", ("Generate Random Data", "Upload CSV"))
 
