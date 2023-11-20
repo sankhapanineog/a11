@@ -139,7 +139,7 @@ def main():
 
     # Display the Confusion Matrix
     st.markdown("### Confusion Matrix")
-    st.write(pd.DataFrame(cm, columns=['Predicted Healthy', 'Predicted Unhealthy'], index=['Actual Healthy', 'Actual Unhealthy']))
+    st.write(pd.DataFrame(cm, columns=['Predicted'], index=['Actual']))
 
     # Display Accuracy and Classification Report
     st.markdown(f"**Accuracy:** {accuracy:.2%}")
