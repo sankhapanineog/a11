@@ -78,7 +78,7 @@ def generate_random_data():
     return data
 
 # Set the default theme to dark
-st.set_page_config(page_title="Neural Network Asset Health Prediction App", page_icon="✅", layout="wide")
+st.set_page_config(page_title="Neural Network Asset Health Prediction App", page_icon="✅", layout="wide", theme="dark")
 
 # Streamlit app
 def main():
