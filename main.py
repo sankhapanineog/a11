@@ -79,6 +79,8 @@ def generate_random_data():
 
 # Streamlit app
 def main():
+    st.set_page_config(page_title="Neural Network based Asset Health Prediction", page_icon="🧠", layout="wide", initial_sidebar_state="collapsed", background_color="#000000",)
+
     st.title("Neural Network based Asset Health Prediction ")
 
     # Option to Generate Random Data or Upload CSV
@@ -147,17 +149,15 @@ def main():
     st.write(classification_rep)
 
     # Explain the advantages of AI-based asset health forecasting
-    st.header(" LETS COLLABORATE")
+    st.header("Let's collaborate for innovation.")
     st.write(" *Early Detection:* AI models can detect subtle patterns indicative of asset degradation before"
              " visible signs appear, allowing for early intervention and maintenance.")
 
     st.write("Embark on a transformative journey towards proactive asset management with our cutting-edge Neural Network-based Asset Health Prediction software. Secure your spot in our early registration and be among the pioneers leveraging the power of artificial intelligence for asset forecasting. ")
 
-    st.write(" For collaboration mail us at neogsankhapani@gmail.com ")
+    st.write("For collaboration mail us at neogsankhapani@gmail.com")
 
-    st.write(" ")
-
-    st.write(" .")
+    st.write(".")
 
 if __name__ == "__main__":
     main()
