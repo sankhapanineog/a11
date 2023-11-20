@@ -79,7 +79,7 @@ def generate_random_data():
 
 # Streamlit app
 def main():
-    st.title(" NEURAL NET BASED ASSET HEALTH FORECASTING TOOL")
+    st.title("Group 7: Neural Network Asset Health Prediction App")
 
     # Option to Generate Random Data or Upload CSV
     data_option = st.radio("Choose Data Source:", ("Generate Random Data", "Upload CSV"))
@@ -87,6 +87,12 @@ def main():
     if data_option == "Generate Random Data":
         # Generate random data for three days
         data = generate_random_data()
+
+        # Plot the generated time series data
+        st.subheader("Generated Time Series Data")
+        fig_random = px.line(data, x='timestamp', y='value', labels={'value': 'Data'})
+        st.plotly_chart(fig_random)
+
     else:
         # Upload CSV file
         uploaded_file = st.file_uploader("Upload CSV file", type=["csv"])
@@ -132,18 +138,18 @@ def main():
 
     # Confusion Matrix, Accuracy, and Classification Report
     y_true = Y.flatten()
-    y_pred = (predictions_original.flatten() > threshold).astype(int)
+    y_pred = predictions_original.flatten() > threshold
     cm = confusion_matrix(y_true, y_pred)
     accuracy = accuracy_score(y_true, y_pred)
     classification_rep = classification_report(y_true, y_pred)
 
-    # Display the Confusion Matrix
-    st.markdown("### Confusion Matrix")
-    st.write(pd.DataFrame(cm, columns=['Predicted'], index=['Actual']))
+    st.write("### Confusion Matrix:")
+    st.write(pd.DataFrame(cm, columns=['Predicted Healthy', 'Predicted Unhealthy'], index=['Actual Healthy', 'Actual Unhealthy']))
 
-    # Display Accuracy and Classification Report
-    st.markdown(f"**Accuracy:** {accuracy:.2%}")
-    st.markdown("### Classification Report")
+    st.write("### Accuracy:")
+    st.write(f"{accuracy:.2%}")
+
+    st.write("### Classification Report:")
     st.write(classification_rep)
 
     # Explain the advantages of AI-based asset health forecasting
