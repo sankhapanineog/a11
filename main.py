@@ -87,12 +87,6 @@ def main():
     if data_option == "Generate Random Data":
         # Generate random data for three days
         data = generate_random_data()
-
-        # Plot the generated time series data
-        st.subheader("Generated Time Series Data")
-        fig_random = px.line(data, x='timestamp', y='value', labels={'value': 'Data'})
-        st.plotly_chart(fig_random)
-
     else:
         # Upload CSV file
         uploaded_file = st.file_uploader("Upload CSV file", type=["csv"])
@@ -138,36 +132,23 @@ def main():
 
     # Confusion Matrix, Accuracy, and Classification Report
     y_true = Y.flatten()
-    y_pred = predictions_original.flatten() > threshold
+    y_pred = (predictions_original.flatten() > threshold).astype(int)
     cm = confusion_matrix(y_true, y_pred)
     accuracy = accuracy_score(y_true, y_pred)
     classification_rep = classification_report(y_true, y_pred)
 
-    st.write("### Confusion Matrix:")
-    st.write(pd.DataFrame(cm, columns=['Predicted Healthy', 'Predicted Unhealthy'], index=['Actual Healthy', 'Actual Unhealthy']))
+    # Display the Confusion Matrix
+    st.markdown("### Confusion Matrix")
+    st.write(pd.DataFrame(cm, columns=['Predicted'], index=['Actual']))
 
-    st.write("### Accuracy:")
-    st.write(f"{accuracy:.2%}")
-
-    st.write("### Classification Report:")
+    # Display Accuracy and Classification Report
+    st.markdown(f"*Accuracy:* {accuracy:.2%}")
+    st.markdown("### Classification Report")
     st.write(classification_rep)
 
     # Explain the advantages of AI-based asset health forecasting
     st.subheader("Advantages of AI-based Asset Health Forecasting:")
-    st.write("1. **Early Detection:** AI models can detect subtle patterns indicative of asset degradation before"
-             " visible signs appear, allowing for early intervention and maintenance.")
+    
 
-    st.write("2. **Data-Driven Insights:** AI algorithms analyze large datasets, providing data-driven insights into"
-             " asset performance and health based on historical patterns and real-time data.")
-
-    st.write("3. **Predictive Maintenance:** AI can predict when equipment is likely to fail, enabling proactive"
-             " maintenance schedules and minimizing downtime.")
-
-    st.write("4. **Cost Savings:** Predictive maintenance and early detection of issues lead to cost savings by"
-             " preventing major breakdowns and reducing unplanned downtime.")
-
-    st.write("5. **Continuous Improvement:** AI models can be continually trained and improved with new data, adapting"
-             " to changing conditions and improving accuracy over time.")
-
-if __name__ == "__main__":
+if _name_ == "_main_":
     main()
