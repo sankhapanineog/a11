@@ -5,6 +5,48 @@ import numpy as np
 import plotly.express as px
 from sklearn.metrics import confusion_matrix, accuracy_score, classification_report
 
+# Additional imports for custom styling and animations
+import streamlit.components.v1 as components
+
+# Load custom CSS for futuristic design
+css_code = """
+body {
+    background-color: #111;
+    color: #fff;
+}
+
+.sidebar .sidebar-content {
+    background-color: #333;
+}
+
+.stButton>button {
+    background-color: #3498db;
+    color: #fff;
+}
+
+.stButton>button:hover {
+    background-color: #2980b9;
+}
+
+.stSlider>div>div>div>div>div {
+    background-color: #3498db;
+}
+
+.stPlotlyChart {
+    border: 2px solid #3498db;
+    border-radius: 10px;
+}
+
+.stAlert {
+    background-color: #2ecc71;
+    color: #fff;
+    border: 2px solid #2ecc71;
+}
+"""
+
+# Load custom CSS
+components.html(f"<style>{css_code}</style>")
+
 # Activation function (sigmoid)
 def sigmoid(x):
     return 1 / (1 + np.exp(-x))
