@@ -77,8 +77,46 @@ def generate_random_data():
     data = pd.DataFrame({'timestamp': timestamps, 'value': values})
     return data
 
-# Set the default theme to dark
-st.set_page_config(page_title="Neural Network Asset Health Prediction App", page_icon="✅", layout="wide", theme="dark")
+# Set the dark theme for the entire app
+st.markdown(
+    """
+    <style>
+    body {
+        background-color: #111;
+        color: #fff;
+    }
+
+    .sidebar .sidebar-content {
+        background-color: #333;
+    }
+
+    .stButton>button {
+        background-color: #3498db;
+        color: #fff;
+    }
+
+    .stButton>button:hover {
+        background-color: #2980b9;
+    }
+
+    .stSlider>div>div>div>div>div {
+        background-color: #3498db;
+    }
+
+    .stPlotlyChart {
+        border: 2px solid #3498db;
+        border-radius: 10px;
+    }
+
+    .stAlert {
+        background-color: #2ecc71;
+        color: #fff;
+        border: 2px solid #2ecc71;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 # Streamlit app
 def main():
