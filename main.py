@@ -163,5 +163,5 @@ def main():
     st.write("5. *Continuous Improvement:* AI models can be continually trained and improved with new data, adapting"
              " to changing conditions and improving accuracy over time.")
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     main()
